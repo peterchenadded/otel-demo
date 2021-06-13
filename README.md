@@ -24,6 +24,31 @@ From the top of the project directory, build the app and the Docker images using
 $ make
 ```
 
+## Environment
+
+To integrate with different tracing solutions, create a .env file with below contents
+
+### jaeger
+
+```
+OTEL_EXPORTER=jaeger
+```
+
+### Splunk Observability
+
+```
+OTEL_EXPORTER=splunk-otel
+SPLUNK_ACCESS_TOKEN=test
+SPLUNK_REALM=us1
+```
+
+### Newrelic one
+
+```
+OTEL_EXPORTER=newrelic
+NEW_RELIC_LICENSE_KEY=xxx
+```
+
 ## Run
 
 To start up all the containers, it's just:
@@ -45,4 +70,5 @@ $ docker-compose up
     - DB: mysql://localhost:3307
 - Jaeger UI: http://localhost:16686
 
-To try it out, just hit the sample app UI a few times, and then look at the traces in Jaeger.
+To try it out, just hit the sample app UI a few times, and then look at the traces in the tracing solution
+
