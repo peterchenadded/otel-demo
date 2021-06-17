@@ -25,4 +25,11 @@ elif [ "${OTEL_EXPORTER}" == "newrelic" ]; then
 
   JAVA_OPTS="${JAVA_OPTS} \
     -javaagent:${APP_HOME}/newrelic.jar"
+
+elif [ "${OTEL_EXPORTER}" == "appdynamics" ]; then
+  # Appdynamics
+
+  JAVA_OPTS="${JAVA_OPTS} \
+    -javaagent:${APP_HOME}/appdynamics/javaagent.jar"
+
 fi

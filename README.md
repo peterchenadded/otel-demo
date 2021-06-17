@@ -49,6 +49,15 @@ OTEL_EXPORTER=newrelic
 NEW_RELIC_LICENSE_KEY=xxx
 ```
 
+### Appdynamics
+
+```
+OTEL_EXPORTER=appdynamics
+APPDYNAMICS_AGENT_ACCOUNT_NAME=test
+APPDYNAMICS_CONTROLLER_HOST_NAME=test.saas.appdynamics.com
+APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY=xxx
+```
+
 ## Run
 
 To start up all the containers, it's just:

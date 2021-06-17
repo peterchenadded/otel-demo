@@ -40,9 +40,9 @@ docker:
 	$(info =====[ BUILDING DOCKER PACKAGE: $(APP_NAME) ]=====)
 ifeq ($(OS), Windows_NT)
 	if not exist .\tmp mkdir .\tmp
-	copy ..\agents\* .\tmp
+	copy -r ..\agents\* .\tmp
 else
 	mkdir -p ./tmp
-	cp ../agents/* ./tmp
+	cp -r ../agents/* ./tmp
 endif
 	$(DOCKER) build -t $(APP_NAME) .
