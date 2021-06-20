@@ -4,6 +4,11 @@ OpenTelemetry auto-instrumentation demo. It features a microservices-based trave
 
 Blog post: [Auto-instrumentation with OpenTelemetry](https://medium.com/wwblog/auto-instrumentation-with-opentelemetry-3b096fdd068f)
 
+## Sequence diagram
+
+![Sequence diagram](https://user-images.githubusercontent.com/10074427/122676543-e739a300-d221-11eb-980b-d187ced973ba.png)
+
+
 ## Windows setup
 
 Do the following from an elevated command shell:
@@ -15,6 +20,12 @@ Do the following from an elevated command shell:
    - You'll need to decide whether you want to use WSL 2 (Linux) or else Hyper-V as a Docker backend. I recommend WSL 2, as it has better performance. Either way, you'll need to restart your computer.
    - If you chose Hyper-V, go to Docker Desktop > Settings > Resources, and give yourself 8 GB of memory.
 5. **Optional:** If you want to play around with the app itself, install Visual Studio Code: `choco install vscode`. Include Java support, and install the Docker and Lombok extensions too. The Docker extension will make it easier to view container logs and shell into containers.
+
+## Linux setup
+
+```
+sudo apt-get install docker docker-compose default-jdk wget make git
+```
 
 ## Build
 
@@ -34,6 +45,8 @@ To integrate with different tracing solutions, create a .env file with below con
 OTEL_EXPORTER=jaeger
 ```
 
+and uncomment the jaeger service lines in docker-compose.yml.
+
 ### Splunk Observability
 
 ```
@@ -41,6 +54,8 @@ OTEL_EXPORTER=splunk-otel
 SPLUNK_ACCESS_TOKEN=test
 SPLUNK_REALM=us1
 ```
+
+and uncomment the splunk service lines in docker-compose.yml.
 
 ### Newrelic one
 
@@ -64,6 +79,12 @@ To start up all the containers, it's just:
 
 ```
 $ docker-compose up
+```
+
+## Sending requests
+
+```
+watch 'curl http://localhost:8080'
 ```
 
 ## Endpoints
